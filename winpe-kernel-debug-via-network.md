@@ -1,10 +1,10 @@
 ---
 title: Windows PE でのネットワーク経由カーネル デバッガ接続方法について
-date: 9999-12-31 00:00:00
+date: 2020-05-08 12:00:00
 categories:
-- template
+- Windows PE
 tags:
-- テンプレ
+- カーネル デバッグ
 ---
 Windows PE でのネットワーク経由のカーネルデバッガ接続方法についてご紹介します。
 <!-- more -->
