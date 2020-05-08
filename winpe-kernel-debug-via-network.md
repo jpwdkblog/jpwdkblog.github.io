@@ -11,13 +11,11 @@ Windows PE でのネットワーク経由のカーネルデバッガ接続方法
 <br>
 
 ***
-Windows PE でのシリアルケーブル経由でのカーネルデバッガ接続方法は、以下のドキュメントが公開されております。  
-[WinPE: Debug Apps - Kernel-mode debugging](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/winpe-debug-apps#kernel-mode-debugging)  
-
-上記の方法では、カーネルデバッガを起動する側であるホスト PC を選びません。  
+Windows PE でのシリアルケーブル経由でのカーネルデバッガ接続方法は、以下のドキュメントが公開されております。この方法では、カーネルデバッガを起動する側であるホスト PC を選びません。  
+- [WinPE: Debug Apps - Kernel-mode debugging](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/winpe-debug-apps#kernel-mode-debugging)  
 
 対しまして、今回ご紹介するネットワーク経由のカーネルデバッガ接続方法では、通常、以下のブログでご紹介したような kdnet.exe は、ターゲット PC の再起動が必要となるため使えず、予めホスト PC の IP アドレスを Windows PE 側の BCD に設定しておく必要があります。  
-[Hyper-V 仮想マシンへのネットワーク経由のカーネルデバッガ接続方法](https://social.msdn.microsoft.com/Forums/ja-JP/db91ddff-f8ff-49d8-bef2-2a0c596414c2/hyperv-?forum=wdksupportteamja)  
+- [Hyper-V 仮想マシンへのネットワーク経由のカーネルデバッガ接続方法](https://social.msdn.microsoft.com/Forums/ja-JP/db91ddff-f8ff-49d8-bef2-2a0c596414c2/hyperv-?forum=wdksupportteamja)  
 
 それでは、具体的な手順を紹介します。
 
@@ -34,7 +32,7 @@ Windows PE でのシリアルケーブル経由でのカーネルデバッガ接
 - [ADK 用の Windows PE アドオンのダウンロード](https://go.microsoft.com/fwlink/?linkid=2087112)
 
 ***
-### 前提
+### 手順
 
 1. [スタート] -> [Windows Kits] -> [展開およびイメージング ツール環境] を管理者権限で起動します。
 
@@ -81,7 +79,7 @@ Windows PE でのシリアルケーブル経由でのカーネルデバッガ接
    ```
    > windbg.exe -k net:port=50005,key=5.5.5.5
    ```
+<br>
 
-
-以上の内容がお役に立てば幸いです。
+以上の内容がお役に立てば幸いです。  
 ***
