@@ -75,7 +75,7 @@ Windows PE でのシリアルケーブル経由でのカーネルデバッガ接
    (第一世代ですと、UEFI ではないため、カーネルデバッグ接続できません。また、セキュアブートは無効にする必要があります。)  
    使用する仮想スイッチは、上記「Hyper-V 仮想マシンへのネットワーク経由のカーネルデバッガ接続方法」の「1. ホストPC と仮想マシンをネットワーク接続します。」と同じものを使っています。  
 
-![SecureBootSetting.png](https://jpwdkblog.github.io/images/SecureBootSetting.png)
+   ![SecureBootSetting.png](https://jpwdkblog.github.io/images/SecureBootSetting.png)
 
 1. カーネルデバッガ側は、以下のコマンドを実行することで Windows PE のターゲットにデバッガ接続し、ブレークインできます。  
    ```
