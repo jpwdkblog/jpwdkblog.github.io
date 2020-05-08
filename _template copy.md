@@ -36,16 +36,16 @@ Windows PE でのシリアルケーブル経由でのカーネルデバッガ接
 ***
 ### 前提
 
-1. (1) [スタート] -> [Windows Kits] -> [展開およびイメージング ツール環境] を管理者権限で起動します。
+1. [スタート] -> [Windows Kits] -> [展開およびイメージング ツール環境] を管理者権限で起動します。
 
-1. (2) copype.exe で、例として D:\WinPE_amd64 に作業用ディレクトリを作成します。  
+1. copype.exe で、例として D:\WinPE_amd64 に作業用ディレクトリを作成します。  
 (D ドライブの使用は例であり、任意の場所で問題ありません。また、すでに D:\WinPE_amd64 が存在する場合は、コマンドがエラーとなるため、事前に削除しておきます。)
 
-   ```
+   ```console
    > copype amd64 d:\WinPE_amd64
    ```
 
-1. (3) 以下のコマンドを実行し、Windows PE 環境側のネットワーク接続でのカーネルデバッグ設定を行います。  
+1. 以下のコマンドを実行し、Windows PE 環境側のネットワーク接続でのカーネルデバッグ設定を行います。  
 
    ```
    > bcdedit /store d:\WinPE_amd64\media\EFI\Microsoft\Boot\BCD /set {default} debug on
@@ -56,7 +56,7 @@ Windows PE でのシリアルケーブル経由でのカーネルデバッガ接
    ```
    `PORT の 50005 と key の 5.5.5.5 は例です。`  
 
-1. (4) 以下のコマンドを実行し、設定した結果に問題ないか確認します。  
+1. 以下のコマンドを実行し、設定した結果に問題ないか確認します。  
    ```
    > bcdedit /store d:\WinPE_amd64\media\EFI\Microsoft\Boot\BCD /dbgsettings
       key                     5.5.5.5
@@ -66,9 +66,10 @@ Windows PE でのシリアルケーブル経由でのカーネルデバッガ接
       dhcp                    Yes
    ```
 
-(5) 上記が完了したら、以下のコマンドで Windows PE の ISO ファイルを作成します。
-
-      > makewinpemedia /iso d:\WinPE_amd64\winpe_x64_debug.iso
+1. 上記が完了したら、以下のコマンドで Windows PE の ISO ファイルを作成します。  
+   ```
+   > makewinpemedia /iso d:\WinPE_amd64\winpe_x64_debug.iso
+   ```
 
 (6) 上記の ISO ファイルで Hyper-V 仮想環境 (第二世代、セキュアブートなし) を作成します。
     (第一世代ですと、UEFI ではないため、カーネルデバッグ接続できません。また、セキュアブートは無効にする必要があります。)
