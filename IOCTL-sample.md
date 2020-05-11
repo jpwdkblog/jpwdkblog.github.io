@@ -156,7 +156,7 @@ DriverUnload:  fffff80822a759e0        SIoctl!SioctlUnloadDriver
 AddDevice:     00000000 
 
 Dispatch routines:
-##[00] IRP_MJ_CREATE                      fffff80822a751d0       SIoctl!SioctlCreateClose
+[00] IRP_MJ_CREATE                      fffff80822a751d0       SIoctl!SioctlCreateClose <<<<< ★
 [01] IRP_MJ_CREATE_NAMED_PIPE           fffff80627dccd40      nt!IopInvalidDeviceRequest
 [02] IRP_MJ_CLOSE                       fffff80822a751d0        SIoctl!SioctlCreateClose
 [03] IRP_MJ_READ                        fffff80627dccd40        nt!IopInvalidDeviceRequest
