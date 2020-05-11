@@ -12,22 +12,22 @@ Windows PE で IOCTL サンプルを動作させる方法についてご紹介�
 
 ***
 今回は、Windows PE で IOCTL サンプルを動作させる方法についてご紹介します。  
-[IOCTL サンプル サイト](https://github.com/Microsoft/Windows-driver-samples/tree/master/general/ioctl/wdm)  
+- [IOCTL サンプル サイト](https://github.com/Microsoft/Windows-driver-samples/tree/master/general/ioctl/wdm)  
 
 Windows PE でご自身のドライバがうまく動作しない場合の、比較の一助になれば幸いです。  
 
 ***
 ### 前提
 今回は、以前ご案内した以下のブログと同じ環境がすでにあることを前提とします。  
-[Windows PE でのネットワーク経由のカーネルデバッガ接続方法]()
+- [Windows PE でのネットワーク経由のカーネルデバッガ接続方法]()
 
 上記で使用している ISO を上書きすることになるため、仮想マシンはシャットダウン (電源 OFF でもよいです) し、カーネルデバッガも終了しておきます。また、今回はあくまでもテスト目的のため、通常必要となる以下の方法での INF ファイルのドライバインストール方法を使っていない点にご留意ください。  
-[WinPE:マウントとカスタマイズ - デバイス ドライバー (.inf ファイル) を追加する](https://docs.microsoft.com/ja-jp/windows-hardware/manufacture/desktop/winpe-mount-and-customize#span-idadddriversspanadd-device-drivers-inf-files)  
+- [WinPE:マウントとカスタマイズ - デバイス ドライバー (.inf ファイル) を追加する](https://docs.microsoft.com/ja-jp/windows-hardware/manufacture/desktop/winpe-mount-and-customize#span-idadddriversspanadd-device-drivers-inf-files)  
 
 今回使用する IOCTL のサンプルにも、運用環境で使用してはいけない旨記載されております。  
 
-[IOCTL サンプル サイト](https://github.com/Microsoft/Windows-driver-samples/tree/master/general/ioctl/wdm) 抜粋:  
-> [!CAUTION] This sample driver is not a Plug and Play driver. This is a minimal driver meant to demonstrate a feature of the operating system. Neither this driver nor its sample programs are intended for use in a production environment. Instead, they are intended for educational purposes and as a skeleton driver.  
+- [IOCTL サンプル サイト](https://github.com/Microsoft/Windows-driver-samples/tree/master/general/ioctl/wdm) 抜粋:  
+  > [!CAUTION] This sample driver is not a Plug and Play driver. This is a minimal driver meant to demonstrate a feature of the operating system. Neither this driver nor its sample programs are intended for use in a production environment. Instead, they are intended for educational purposes and as a skeleton driver.  
 
 ***
 ### 手順
