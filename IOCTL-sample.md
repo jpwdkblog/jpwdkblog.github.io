@@ -12,26 +12,23 @@ Windows PE で IOCTL サンプルを動作させる方法についてご紹介�
 
 ***
 今回は、Windows PE で IOCTL サンプルを動作させる方法についてご紹介します。  
-
-[IOCTL](https://github.com/Microsoft/Windows-driver-samples/tree/master/general/ioctl/wdm)  
+[IOCTL サンプル サイト](https://github.com/Microsoft/Windows-driver-samples/tree/master/general/ioctl/wdm)  
 
 Windows PE でご自身のドライバがうまく動作しない場合の、比較の一助になれば幸いです。  
 
 ***
 ### 前提
-今回は、以前ご案内した以下のブログと同じ環境がすでにあることを前提とします。
-
+今回は、以前ご案内した以下のブログと同じ環境がすでにあることを前提とします。  
 [Windows PE でのネットワーク経由のカーネルデバッガ接続方法]()
 
 上記で使用している ISO を上書きすることになるため、仮想マシンはシャットダウン (電源 OFF でもよいです) し、カーネルデバッガも終了しておきます。  
 
 また、今回はあくまでもテスト目的のため、通常必要となる以下の方法での INF ファイルのドライバインストール方法を使っていない点にご留意ください。  
-
 [WinPE:マウントとカスタマイズ - デバイス ドライバー (.inf ファイル) を追加する](https://docs.microsoft.com/ja-jp/windows-hardware/manufacture/desktop/winpe-mount-and-customize#span-idadddriversspanadd-device-drivers-inf-files)  
 
 今回使用する IOCTL のサンプルにも、運用環境で使用してはいけない旨記載されております。  
 
-[IOCTL](https://github.com/Microsoft/Windows-driver-samples/tree/master/general/ioctl/wdm) サイト抜粋:  
+[IOCTL サンプル サイト](https://github.com/Microsoft/Windows-driver-samples/tree/master/general/ioctl/wdm) 抜粋:  
 > [!CAUTION] This sample driver is not a Plug and Play driver. This is a minimal driver meant to demonstrate a feature of the operating system. Neither this driver nor its sample programs are intended for use in a production environment. Instead, they are intended for educational purposes and as a skeleton driver.  
 
 ***
@@ -42,23 +39,19 @@ Windows PE でご自身のドライバがうまく動作しない場合の、比
 - 1-1. サンプルの入手  
 
    IOCTL サンプルは、以下のサイトの右側の緑色の [Clone or Download] ボタンを押すと表示される [Download ZIP] ボタンで Windows-driver-samples-master.zipをダウンロードすると、Windows-driver-samples-master\general\ioctl\wdm のフォルダにあります。  
-
    https://github.com/Microsoft/Windows-driver-samples
 
 - 1-2. サンプルのビルド  
 
    このフォルダの ioctl.sln を、Visual Studio 2019 で開きます。Exe フォルダの下にはユーザーモードアプリケーションである ioctlapp のプロジェクト、Sys フォルダの下にはカーネルモードドライバである sioctl のプロジェクトがあることを確認できます。  
-
    ![SolutionExplorer.png](https://jpwdkblog.github.io/images/SolutionExplorer.png)
 
    **[ソリューション ‘ioctl’]** を右クリックして **[構成マネージャー]** をクリックします。
-   
    ![ConfigurationManager.png](https://jpwdkblog.github.io/images/ConfigurationManager.png)
 
    今回は、[アクティブソリューション構成] を **[Debug]**、[アクティブ ソリューション プラットフォーム] を **[x64]** とします。  
 
    また、ioctlapp のプロパティを開き、[構成プロパティ]-[C/C++]-[コード生成] の [ランタイム ライブラリ] は **[マルチスレッド デバッグ (/MTd)]** にしておきます。  
-
    ![ioctlappPropatyPage.png](https://jpwdkblog.github.io/images/ioctlappPropatyPage.png)
 
    [ソリューション ‘ioctl’] を右クリックして [ソリューションのリビルド] をクリックします。  
@@ -74,13 +67,11 @@ Windows PE でご自身のドライバがうまく動作しない場合の、比
 (2) 管理者権限で起動された [展開およびイメージング ツール環境] で、以下のコマンドを実行します。(作業用ディレクトリは、前回の記事の前提のまま D:\WinPE_amd64 とします。)
 
 - 2-1. テスト署名が利用可能になるようにします。
-
    ```
    > bcdedit /store d:\WinPE_amd64\media\EFI\Microsoft\Boot\BCD /set {default} testsigning on
    ```
 
 - 2-2. 上述のアプリケーションとドライバのファイルを WinPE のイメージにコピーするために、WinPE のイメージをマウントします。
-
    ```
    > Dism /Mount-Image /ImageFile:"D:\WinPE_amd64\media\sources\boot.wim" /index:1 /MountDir:"D:\WinPE_amd64\mount"
    ```
@@ -89,7 +80,6 @@ Windows PE でご自身のドライバがうまく動作しない場合の、比
    [Windows PE ブート イメージをマウントする](https://docs.microsoft.com/ja-jp/windows-hardware/manufacture/desktop/winpe-mount-and-customize#span-idmount_the_imagespanmount-the-windows-pe-boot-image)
 
 - 2-3. マウントした WinPE のイメージに、上述のアプリケーションとドライバのファイルをコピーします。ここでは例として \Windows\Ioctl というフォルダにコピーするとします。
-
    ```
    > xcopy D:\develop\blog\ioctl\wdm\sys\x64\Debug\sioctl.sys "D:\WinPE_amd64\mount\Windows\Ioctl"
 
@@ -97,7 +87,6 @@ Windows PE でご自身のドライバがうまく動作しない場合の、比
    ```
 
 - 2-4. WinPE イメージのマウントを解除し、変更をコミットします。
-
    ```
    > Dism /Unmount-Image /MountDir:"D:\WinPE_amd64\mount" /commit
    ```
@@ -106,7 +95,6 @@ Windows PE でご自身のドライバがうまく動作しない場合の、比
    [Windows PE イメージのマウントを解除し、メディアを作成する](https://docs.microsoft.com/ja-jp/windows-hardware/manufacture/desktop/winpe-mount-and-customize#span-idunmountspanunmount-the-windows-pe-image-and-create-media)  
 
 - 2-5. 上記が完了したら、以下のコマンドで Windows PE の ISO ファイルを作成します。
-
    ```
    > makewinpemedia /iso d:\WinPE_amd64\winpe_x64_debug.iso
    ```
@@ -114,7 +102,6 @@ Windows PE でご自身のドライバがうまく動作しない場合の、比
 (3) 「Windows PE でのネットワーク経由のカーネルデバッガ接続方法」の記事で作成した仮想マシンを起動すると、上記の ISO ファイルで起動します。  
 
 (4) カーネルデバッガ側は、以下のコマンドを実行することで Windows PE のターゲットにデバッガ接続し、ブレークインできます。
-
    ```
    > windbg.exe -k net:port=50005,key=5.5.5.5
    ```
@@ -122,7 +109,6 @@ Windows PE でご自身のドライバがうまく動作しない場合の、比
 (5) カーネルデバッガ側では、Symbol Search Path に上記 1-2. の sioctl.sys と ioctlapp.exe のシンボルファイル (sioctl.pdb と ioctlapp.pdb) の存在するフォルダへのフルパスを追記しておきます。  
 
 (6) カーネルデバッガの Commands ウィンドウで以下のコマンドを実行して、sioctl.sys の DriverEntry にブレークポイントを貼ってから g を実行します。
-
    ```
    > bp sioctl!DriverEntry
    ```
@@ -130,13 +116,11 @@ Windows PE でご自身のドライバがうまく動作しない場合の、比
 (7) 仮想マシン上で開いているコマンドプロンプト上で、以下を実行します。  
 
 - 7-1. ioctlapp.exe のある \Windows\Ioctl フォルダに移動します。
-
    ```
    > cd \Windows\Ioctl
    ```
 
 - 7-2. ioctlapp.exe をオプションなしで実行します。
-
    ```
    > ioctlapp.exe
    ```
@@ -144,7 +128,6 @@ Windows PE でご自身のドライバがうまく動作しない場合の、比
 (8) カーネルデバッガ側で sioctl!DriverEntry にブレークインします。自動的に ioctl\wdm\sys\sioctl.c が開かない場合には開きます。  
 
 (9) Commands ウィンドウで p などを入力して、161 行目の「return status;」までステップ実行します。ここで、!drvobj sioctl 2 と実行すれば、132 行目で「DriverObject->MajorFunction[IRP_MJ_CREATE] = SioctlCreateClose;」を実行している通り、以下のように、IOCTL_MJ_CREATE のコールバックに SIoctl!SioctlCreateClose がセットされていることがわかります。  
-
 ```Console
 kd> !drvobj sioctl 2
 Driver object (ffffd18d336f0e40) is for:
@@ -193,7 +176,6 @@ Dispatch routines:
    ```
 
 (11) カーネルデバッガ側で SIoctl!SioctlCreateClose にブレークインします。k を実行すると、確かに ioctlapp.exe の main 関数の CreateFile からオープンされたことが確認できます。  
-
 ```Console
 kd> k
 # Child-SP          RetAddr           Call Site
@@ -215,11 +197,9 @@ kd> k
 ```
 
 Testapp.c の 106 行目のコードは、確かに以下の通り CreateFile() を実行しています。  
-
 ![CreateFile.png](https://jpwdkblog.github.io/images/CreateFile.png)
 
 これでオープンできているのは、sioctl.sys で以下のように、IoCreateDevice() の第 3 引数 ntUnicodeString で \Device\SIOCTL という NT Device Name をセットしており、かつ、これに対するシンボリックリンクとして、Win32 Name である \DosDevices\IoctlTest を IoCreateSymbolicLink() で作成しているためです。  
-
 ![IoCreateDevice.png](https://jpwdkblog.github.io/images/IoCreateDevice.png)
 
 参考:  
