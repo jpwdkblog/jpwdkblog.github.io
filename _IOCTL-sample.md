@@ -42,15 +42,21 @@ Windows PE でご自身のドライバがうまく動作しない場合の、比
 - 1-2. サンプルのビルド  
 
    このフォルダの ioctl.sln を、Visual Studio 2019 で開きます。Exe フォルダの下にはユーザーモードアプリケーションである ioctlapp のプロジェクト、Sys フォルダの下にはカーネルモードドライバである sioctl のプロジェクトがあることを確認できます。  
-   ![SolutionExplorer.png](https://jpwdkblog.github.io/images/SolutionExplorer.png)
+   <div align="left">
+   <img src="https://jpwdkblog.github.io/images/SolutionExplorer.png">
+   </div>
 
-   **[ソリューション ‘ioctl’]** を右クリックして **[構成マネージャー]** をクリックします。
-   ![ConfigurationManager.png](https://jpwdkblog.github.io/images/ConfigurationManager.png)
+   **[ソリューション ‘ioctl’]** を右クリックして **[構成マネージャー]** をクリックします。  
+   <div align="left">
+   <img src="https://jpwdkblog.github.io/images/ConfigurationManager.png">
+   </div>
 
    今回は、[アクティブソリューション構成] を **[Debug]**、[アクティブ ソリューション プラットフォーム] を **[x64]** とします。  
 
    また、ioctlapp のプロパティを開き、[構成プロパティ]-[C/C++]-[コード生成] の [ランタイム ライブラリ] は **[マルチスレッド デバッグ (/MTd)]** にしておきます。  
-   ![ioctlappPropatyPage.png](https://jpwdkblog.github.io/images/ioctlappPropatyPage.png)
+   <div align="left">
+   <img src="https://jpwdkblog.github.io/images/ioctlappPropatyPage.png">
+   </div>
 
    [ソリューション ‘ioctl’] を右クリックして [ソリューションのリビルド] をクリックします。  
    これで、ioctlapp.exe, sioctl.sys ができます。  
@@ -195,10 +201,14 @@ kd> k
 ```
 
 Testapp.c の 106 行目のコードは、確かに以下の通り CreateFile() を実行しています。  
-![CreateFile.png](https://jpwdkblog.github.io/images/CreateFile.png)
+<div align="left">
+<img src="https://jpwdkblog.github.io/images/CreateFile.png">
+</div>
 
 これでオープンできているのは、sioctl.sys で以下のように、IoCreateDevice() の第 3 引数 ntUnicodeString で \Device\SIOCTL という NT Device Name をセットしており、かつ、これに対するシンボリックリンクとして、Win32 Name である \DosDevices\IoctlTest を IoCreateSymbolicLink() で作成しているためです。  
-![IoCreateDevice.png](https://jpwdkblog.github.io/images/IoCreateDevice.png)
+<div align="left">
+<img src="https://jpwdkblog.github.io/images/IoCreateDevice.png">
+</div>
 
 参考:  
 [Introduction to MS-DOS Device Names](https://docs.microsoft.com/en-us/windows-hardware/drivers/kernel/introduction-to-ms-dos-device-names)
@@ -211,12 +221,12 @@ Testapp.c の 106 行目のコードは、確かに以下の通り CreateFile() 
 > WDM drivers do not usually supply MS-DOS device names for their devices. Instead, WDM drivers use the IoRegisterDeviceInterface routine to register a device interface. The device interface specifies devices by their capabilities, rather than by a particular naming convention. For more information, see Device Interface Classes.
 
 KMDF など WDF については、以下のドキュメントもご参考ください。  
-
 [Using Device Interfaces](https://docs.microsoft.com/en-us/windows-hardware/drivers/wdf/using-device-interfaces)
 
 (12) 最終的に仮想マシン上のコマンドプロンプトには、ioctlapp.exe の実行結果として、以下が表示されて、問題なく動作できていることがわかります。(各 IOCTL の動作を確認したい場合は、上記を参考に SIoctl!SioctlDeviceControl にブレークポイントを貼ってみてください。)  
-
-![SIoctl_SioctlDeviceControl.png](https://jpwdkblog.github.io/images/SIoctl_SioctlDeviceControl.png)  
+<div align="left">
+<img src="https://jpwdkblog.github.io/images/SIoctl_SioctlDeviceControl.png">
+</div>
 <br>
 
 以上の内容がお役に立てば幸いです。  
