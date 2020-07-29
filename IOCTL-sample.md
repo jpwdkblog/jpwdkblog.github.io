@@ -19,7 +19,7 @@ Windows PE でご自身のドライバがうまく動作しない場合の、比
 ***
 ### 前提
 今回は、以前ご案内した以下のブログと同じ環境がすでにあることを前提とします。  
-- [Windows PE でのネットワーク経由のカーネルデバッガ接続方法]()
+- [Windows PE でのネットワーク経由のカーネルデバッガ接続方法](https://jpwdkblog.github.io/blog/2020/07/29/winpe-kernel-debug-via-network/)
 
 上記で使用している ISO を上書きすることになるため、仮想マシンはシャットダウン (電源 OFF でもよいです) し、カーネルデバッガも終了しておきます。また、今回はあくまでもテスト目的のため、通常必要となる以下の方法での INF ファイルのドライバインストール方法を使っていない点にご留意ください。  
 - [WinPE:マウントとカスタマイズ - デバイス ドライバー (.inf ファイル) を追加する](https://docs.microsoft.com/ja-jp/windows-hardware/manufacture/desktop/winpe-mount-and-customize#span-idadddriversspanadd-device-drivers-inf-files)  
