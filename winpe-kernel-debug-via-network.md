@@ -1,6 +1,6 @@
 ---
 title: Windows PE でのネットワーク経由カーネル デバッガ接続方法について
-date: 2020-06-01 17:00:00
+date: 2020-07-29 17:00:00
 categories:
 - Windows PE
 tags:
@@ -101,4 +101,4 @@ Windows PE でのシリアルケーブル経由でのカーネルデバッガ接
 以上の内容がお役に立てば幸いです。  
 ***
 `変更履歴`  
-`2020/06/01 created by Tsuda`  
+`2020/07/29 created by Tsuda`  
