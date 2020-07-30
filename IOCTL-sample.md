@@ -65,8 +65,8 @@ Windows PE でご自身のドライバがうまく動作しない場合の、比
 
    |ファイル|場所|  
    |:---|:---|  
-   |ioctlapp.exe|ioctl\wdm\exe\x64\Debug|  
-   |sioctl.sys|ioctl\wdm\sys\x64\Debug|  
+   |ioctlapp.exe |ioctl\wdm\exe\x64\Debug|  
+   |sioctl.sys |ioctl\wdm\sys\x64\Debug|  
 
 (2) 管理者権限で起動された [展開およびイメージング ツール環境] で、以下のコマンドを実行します。(作業用ディレクトリは、前回の記事の前提のまま D:\WinPE_amd64 とします。)
 
