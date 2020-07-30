@@ -36,7 +36,7 @@ Windows PE でご自身のドライバがうまく動作しない場合の、比
 
 - 1-1. サンプルの入手  
 
-   IOCTL サンプルは、以下のサイトの右側の緑色の [Clone or Download] ボタンを押すと表示される [Download ZIP] ボタンで Windows-driver-samples-master.zipをダウンロードすると、Windows-driver-samples-master\general\ioctl\wdm のフォルダにあります。  
+   IOCTL サンプルは、以下のサイトの右側の緑色の [Code] ボタンを押すと表示される [Download ZIP] ボタンで Windows-driver-samples-master.zipをダウンロードすると、Windows-driver-samples-master\general\ioctl\wdm のフォルダにあります。  
    https://github.com/Microsoft/Windows-driver-samples
 
 - 1-2. サンプルのビルド  
