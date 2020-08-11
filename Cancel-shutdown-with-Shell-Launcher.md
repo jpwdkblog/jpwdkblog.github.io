@@ -1,10 +1,10 @@
 ---
-title: テンプレート
-date: 9999-12-31 00:00:00
+title: Shell Launcher でシャットダウンをキャンセルする方法
+date: 2020-08-11 12:00:00
 categories:
-- template
+- Shell Launcher
 tags:
-- テンプレ
+- シャットダウン
 ---
 Shell Launcher でシャットダウンをキャンセルする方法についてご紹介します。  
 <!-- more -->
@@ -62,7 +62,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 }
 ```
 
-![Closing1app-and-shuttingdown.png](https://jpwdkblog.github.io/images/Shutdown-with-Shell-Launcher/Closing1app-and-shuttingdown.png)
+![Closing1app-and-shuttingdown.png](https://jpwdkblog.github.io/images/Cancel-shutdown-with-Shell-Launcher/Closing1app-and-shuttingdown.png)
 
 誠に恐れ入りますが、**Shell Launcher V1 では、制限として、これと同じことができる方法はありません。**
 
@@ -171,7 +171,7 @@ xmlns:v2="http://schemas.microsoft.com/ShellLauncher/2019/Configuration">
 
 (8) OS を再起動したら、カスタムシェルアプリケーションが起動してきますので、シャットダウンしますと以下の様に表示されます。Shell Launcher V2 では、カスタムシェルアプリケーションのウィンドウは、必ず全画面表示になりますので、ここでのシャットダウンは、タスクマネージャーの [ファイル]-[新しいタスクの実行] でコマンドプロンプトを起動し、shutdown /s /t 0 を実行しています。  
 
-![Closing4apps-and-shuttingdown.png](https://jpwdkblog.github.io/images/Shutdown-with-Shell-Launcher/Closing4apps-and-shuttingdown.png)
+![Closing4apps-and-shuttingdown.png](https://jpwdkblog.github.io/images/Cancel-shutdown-with-Shell-Launcher/Closing4apps-and-shuttingdown.png)
 
 ## 参考ドキュメント  
 - [Use Shell Launcher to create a Windows 10 kiosk](https://docs.microsoft.com/en-us/windows/configuration/kiosk-shelllauncher)
