@@ -48,9 +48,8 @@ Windows PE で動作するドライバを開発していただくにあたり、
 - [Windows PE でのネットワーク経由カーネル デバッガ接続方法について](https://jpwdkblog.github.io/blog/2020/07/29/winpe-kernel-debug-via-network/)
 
 - [Windows PE で IOCTL サンプルを動作させる方法について
-](https://jpwdkblog.github.io/blog/2020/07/29/IOCTL-sample/)
-
-<br>
+](https://jpwdkblog.github.io/blog/2020/07/29/IOCTL-sample/)  
+<br>  
 
 以上の内容がお役に立てば幸いです。
 ***
