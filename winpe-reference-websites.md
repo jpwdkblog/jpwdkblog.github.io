@@ -15,7 +15,7 @@ Windows PE で動作するドライバを開発していただくにあたり、
 
 ドライバの実装そのものに Windows PE のために特別必要な実装はございませんので、インストール方法とデバッグ方法について以下の通りご案内いたします。  
 
-## Windows PE へのドライバのインストール方法
+## ドライバのインストール方法
 
 - [Add and Remove Drivers to an offline Windows Image](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/add-and-remove-drivers-to-an-offline-windows-image)  
 
@@ -37,7 +37,7 @@ Windows PE で動作するドライバを開発していただくにあたり、
    >
    >Drivers added using the Drvload tool are marked as the preferred driver for that device. If you add an updated driver during Windows Setup, the driver that you added with Drvload takes precedence.
 
-## Windows PE でのドライバのデバッグ方法
+## ドライバのデバッグ方法
 
 - [WinPE: Debug Apps - Kernel-mode debugging](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/winpe-debug-apps#kernel-mode-debugging)
 
