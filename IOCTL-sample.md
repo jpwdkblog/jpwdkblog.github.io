@@ -43,19 +43,19 @@ Windows PE でご自身のドライバがうまく動作しない場合の、比
 
    このフォルダの ioctl.sln を、Visual Studio 2019 で開きます。Exe フォルダの下にはユーザーモードアプリケーションである ioctlapp のプロジェクト、Sys フォルダの下にはカーネルモードドライバである sioctl のプロジェクトがあることを確認できます。  
    <div align="left">
-   <img src="https://jpwdkblog.github.io/images/SolutionExplorer.png">
+   <img src="https://jpwdkblog.github.io/images/IOCTL-sample/SolutionExplorer.png">
    </div>
 
    **[ソリューション ‘ioctl’]** を右クリックして **[構成マネージャー]** をクリックします。  
    <div align="left">
-   <img src="https://jpwdkblog.github.io/images/ConfigurationManager.png">
+   <img src="https://jpwdkblog.github.io/images/IOCTL-sample/ConfigurationManager.png">
    </div>
 
    今回は、[アクティブソリューション構成] を **[Debug]**、[アクティブ ソリューション プラットフォーム] を **[x64]** とします。  
 
    また、ioctlapp のプロパティを開き、[構成プロパティ]-[C/C++]-[コード生成] の [ランタイム ライブラリ] は **[マルチスレッド デバッグ (/MTd)]** にしておきます。  
    <div align="left">
-   <img src="https://jpwdkblog.github.io/images/ioctlappPropatyPage.png">
+   <img src="https://jpwdkblog.github.io/images/IOCTL-sample/ioctlappPropatyPage.png">
    </div>
 
    [ソリューション ‘ioctl’] を右クリックして [ソリューションのリビルド] をクリックします。  
@@ -202,12 +202,12 @@ kd> k
 
 Testapp.c の 106 行目のコードは、確かに以下の通り CreateFile() を実行しています。  
 <div align="left">
-<img src="https://jpwdkblog.github.io/images/CreateFile.png">
+<img src="https://jpwdkblog.github.io/images/IOCTL-sample/CreateFile.png">
 </div>
 
 これでオープンできているのは、sioctl.sys で以下のように、IoCreateDevice() の第 3 引数 ntUnicodeString で \Device\SIOCTL という NT Device Name をセットしており、かつ、これに対するシンボリックリンクとして、Win32 Name である \DosDevices\IoctlTest を IoCreateSymbolicLink() で作成しているためです。  
 <div align="left">
-<img src="https://jpwdkblog.github.io/images/IoCreateDevice.png">
+<img src="https://jpwdkblog.github.io/images/IOCTL-sample/IoCreateDevice.png">
 </div>
 
 参考:  
@@ -225,7 +225,7 @@ KMDF など WDF については、以下のドキュメントもご参考くだ�
 
 (12) 最終的に仮想マシン上のコマンドプロンプトには、ioctlapp.exe の実行結果として、以下が表示されて、問題なく動作できていることがわかります。(各 IOCTL の動作を確認したい場合は、上記を参考に SIoctl!SioctlDeviceControl にブレークポイントを貼ってみてください。)  
 <div align="left">
-<img src="https://jpwdkblog.github.io/images/SIoctl_SioctlDeviceControl.png">
+<img src="https://jpwdkblog.github.io/images/IOCTL-sample/SIoctl_SioctlDeviceControl.png">
 </div>
 <br>
 

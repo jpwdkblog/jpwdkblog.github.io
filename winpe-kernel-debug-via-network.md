@@ -89,7 +89,7 @@ Windows PE でのシリアルケーブル経由でのカーネルデバッガ接
 使用する仮想スイッチは、上記「[Hyper-V 仮想マシンへのネットワーク経由のカーネルデバッガ接続方法](https://social.msdn.microsoft.com/Forums/ja-JP/db91ddff-f8ff-49d8-bef2-2a0c596414c2/hyperv?forum=wdksupportteamja)」の「1. ホストPC と仮想マシンをネットワーク接続します。」と同じものを使っています。
   
 <div align="left">
-<img src="https://jpwdkblog.github.io/images/SecureBootSetting.png">
+<img src="https://jpwdkblog.github.io/images/winpe-kernel-debug-via-network/SecureBootSetting.png">
 </div>
 
 (7) カーネルデバッガ側は、以下のコマンドを実行することで Windows PE のターゲットにデバッガ接続し、ブレークインできます。  
