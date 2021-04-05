@@ -19,7 +19,7 @@ tags:
 - [V4 プリンター ドライバのデバッガアタッチ方法](https://social.msdn.microsoft.com/Forums/ja-JP/06aafefe-ba4c-407e-a4c4-36562d6c6da4/v4-?forum=wdksupportteamja)
 - [デバイスマネージャーの \[表示\] を \[デバイス (接続別)\] に切り替える](https://social.msdn.microsoft.com/Forums/ja-JP/dd9447a6-6221-407e-9f01-a19b86d77567/-?forum=wdksupportteamja)
 - [ダンプファイルに保存されたイベントログを取り出す](https://social.msdn.microsoft.com/Forums/ja-JP/ffae3a15-11af-4ab2-8341-4f004356a6d0?forum=wdksupportteamja)
-- [ダンプファイルに保存された ETW トレースログを表示する](https://social.msdn.microsoft.com/Forums/ja-JP/8ff7b651-dcd1-4721-ab34-12c192fa0e4f/12480125311250312501124491245212523123952044523384123731242812?forum=wdksupportteamja)
+- [ダンプファイルに保存された ETW トレースログを表示する](https://social.msdn.microsoft.com/Forums/ja-JP/8ff7b651-dcd1-4721-ab34-12c192fa0e4f/12480125311250312501124491245212523123952044523384123731242812?forum=wdksupportteamja)  
 など  
 
 [旧: Japan WDK Support Blog](https://docs.microsoft.com/ja-jp/archive/blogs/jpwdkblog/)  
@@ -33,7 +33,8 @@ tags:
 - [WDK for Windows 10, version 1803
 ](https://docs.microsoft.com/ja-jp/archive/blogs/jpwdkblog/wdk-for-windows-10-version-1803)
 - [Err.exe でエラーコードの定義を探す](https://docs.microsoft.com/ja-jp/archive/blogs/jpwdkblog/err-exe)
-- [Minispy File System Minifilter Driver サンプルを動かしてみる](https://docs.microsoft.com/ja-jp/archive/blogs/jpwdkblog/minispy-file-system-minifilter-driver-%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%82%92%E5%8B%95%E3%81%8B%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B)
+- [Minispy File System Minifilter Driver サンプルを動かしてみる](https://docs.microsoft.com/ja-jp/archive/blogs/jpwdkblog/minispy-file-system-minifilter-driver-%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%82%92%E5%8B%95%E3%81%8B%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B)  
+など
 
 ***
 `変更履歴`  
