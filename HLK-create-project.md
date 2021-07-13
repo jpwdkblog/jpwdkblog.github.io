@@ -14,7 +14,7 @@ Windows PE で IOCTL サンプルを動作させる方法についてご紹介�
 Windows 11 HLK では、「[手順 4:プロジェクトの作成](https://docs.microsoft.com/ja-jp/windows-hardware/test/hlk/getstarted/step-4-create-a-project)」の際に、以下のような "Is Windows Driver Project?" というチェックボックスがある “Create project” のダイアログが表示されます。  
  
  <img src="https://jpwdkblog.github.io/images/HLK-create-project/CreateProject.png" width=400px><br clear="left">  
-
+ 
 誠に恐れ入りますが、Windows 11 用の認定や署名の取得のために、Hardware Dev Center Dashboard に提出される場合には、このチェックボックスに <u>**チェックは入れない**</u> ようにお願いいたします。  
  
 このチェックボックスは、本来 Dashboard へのご提出用を目的としておらず、弊社開発部門等と協業されているお客様が、その担当部門より指示があった場合にご利用されるものとなっており、将来削除予定となっております。  
