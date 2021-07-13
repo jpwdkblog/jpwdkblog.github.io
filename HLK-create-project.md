@@ -6,7 +6,7 @@ categories:
 tags:
 - Windows 11 HLK
 ---
-Windows PE で IOCTL サンプルを動作させる方法についてご紹介します。
+Windows 11 HLK の Create project を実行する際の、"Is Windows Driver Project?" チェックボックスについて注意点を紹介致します。  
 <!-- more -->
 <br>
 
