@@ -6,7 +6,7 @@ categories:
 tags:
 - Windows 11 HLK
 ---
-Windows 11 HLK の Create project を実行する際の、"Is Windows Driver Project?" チェックボックスについて注意点を紹介致します。  
+Windows 11 HLK の Create project を実行する際の、"Is Windows Driver Project?" チェックボックスについて注意点を紹介いたします。  
 <!-- more -->
 <br>
 
