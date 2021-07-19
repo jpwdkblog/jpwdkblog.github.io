@@ -55,3 +55,6 @@ Windows PE で動作するドライバを開発していただくにあたり、
 ***
 `変更履歴`  
 `2020/08/11 created by Tsuda`  
+
+※ 本記事は 「[jpwdkblog について](https://jpwdkblog.github.io/blog/2020/01/01/aobut-jpwdkblog/)」 の留意事項に準じます。  
+※ 併せて 「[ホームページ](https://jpwdkblog.github.io/blog/)」 および 「[記事一覧](https://jpwdkblog.github.io/blog/archives/)」 もご参照いただければ幸いです。  
