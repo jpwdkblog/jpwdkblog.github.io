@@ -27,10 +27,13 @@ Windows 11 HLK では、「[手順 4:プロジェクトの作成](https://docs.m
 - (b)	万が一、何らかの理由で (a) の方法がうまくいかない場合は、上記プロジェクトの作成からチェックを入れずにやり直しし、テストを全て再度ご実施いただきます。  
  
 上記の問題を弊社は認識しておりますため、改善に向けたアクションを進めております。ただ、誠に恐れ入りますが、現時点では、上記の回避策があるため、Windows 11 HLK そのものの修正は行われず、次のバージョンのリリースに修正が含まれる予定です。そのため、誠にお手数ではございますが、Windows 11 HLK につきましては、上記の対処でのご対応をお願い申し上げます。  
- 
+
+（※ 2021/07/20 追記：この現象は HLK for Windows Server 2022 にも該当いたします。）
+
 ***
 `変更履歴`  
-`2021/07/13 created by Tsuda`
+`2021/07/13 created by Tsuda`  
+`2021/07/20 modified by Tsuda`  
 
 ※ 本記事は 「[jpwdkblog について](https://jpwdkblog.github.io/blog/2020/01/01/aobut-jpwdkblog/)」 の留意事項に準じます。  
 ※ 併せて 「[ホームページ](https://jpwdkblog.github.io/blog/)」 および 「[記事一覧](https://jpwdkblog.github.io/blog/archives/)」 もご参照いただければ幸いです。  
