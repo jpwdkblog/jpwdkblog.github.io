@@ -11,6 +11,8 @@ Windows 11 HLK の Create project を実行する際の、"Is Windows Driver Pro
 <br>
 
 ***
+(※ 2021/07/20 追記：この現象は HLK for Windows Server 2022 にも該当いたします。)  
+
 Windows 11 HLK では、「[手順 4:プロジェクトの作成](https://docs.microsoft.com/ja-jp/windows-hardware/test/hlk/getstarted/step-4-create-a-project)」の際に、以下のような "Is Windows Driver Project?" というチェックボックスがある “Create project” のダイアログが表示されます。  
  
  <img src="https://jpwdkblog.github.io/images/HLK-create-project/CreateProject.png" width=400px><br clear="left">  
@@ -27,8 +29,6 @@ Windows 11 HLK では、「[手順 4:プロジェクトの作成](https://docs.m
 - (b)	万が一、何らかの理由で (a) の方法がうまくいかない場合は、上記プロジェクトの作成からチェックを入れずにやり直しし、テストを全て再度ご実施いただきます。  
  
 上記の問題を弊社は認識しておりますため、改善に向けたアクションを進めております。ただ、誠に恐れ入りますが、現時点では、上記の回避策があるため、Windows 11 HLK そのものの修正は行われず、次のバージョンのリリースに修正が含まれる予定です。そのため、誠にお手数ではございますが、Windows 11 HLK につきましては、上記の対処でのご対応をお願い申し上げます。  
-
-（※ 2021/07/20 追記：この現象は HLK for Windows Server 2022 にも該当いたします。）
 
 ***
 `変更履歴`  
