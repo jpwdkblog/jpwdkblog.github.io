@@ -28,7 +28,7 @@ Windows 11 HLK 及び Windows HLK for Windows Server 2022 では、「[手順 4:
 
 (b)	万が一、何らかの理由で (a) の方法がうまくいかない場合は、上記プロジェクトの作成からチェックを入れずにやり直し、テストを全て再度ご実施いただきます。  
  
-上記の問題を弊社は認識しておりますため、改善に向けたアクションを進めております。ただ、誠に恐れ入りますが、現時点では、上記の回避策があるため、Windows 11 HLK そのものの修正は行われず、次のバージョンのリリースに修正が含まれる予定です。そのため、誠にお手数ではございますが、Windows 11 HLK 及び Windows HLK for Windows Server 2022 につきましては、上記の対処でのご対応をお願い申し上げます。  
+上記の問題を弊社は認識しておりますため、改善に向けたアクションを進めております。ただ、誠に恐れ入りますが、現時点では、上記の回避策があるため、Windows 11 HLK 及び Windows HLK for Windows Server 2022 そのものの修正は行われず、次のバージョンのリリースに修正が含まれる予定です。そのため、誠にお手数ではございますが、Windows 11 HLK 及び Windows HLK for Windows Server 2022 につきましては、上記の対処でのご対応をお願い申し上げます。  
 
 - 参考 URL  
   [Windows 11 & Server 2022 HLK kit guidance for creating new submission packages for Widows 11, v21H2](https://techcommunity.microsoft.com/t5/windows-hardware-certification/windows-11-amp-server-2022-hlk-kit-guidance-for-creating-new/ba-p/2567481)  
