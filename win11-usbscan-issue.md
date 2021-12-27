@@ -34,17 +34,17 @@ tags:
 
 (2) ウィンドウ下部にある [詳細] をクリックして、詳細表示に切り替えます。
    <div align="left">
-   <img src="https://jpwdkblog.github.io/images/win11-usbscan-issue/taskman1.png">
+   <img src="./images/win11-usbscan-issue/taskman1.png">
    </div>
 
 (3) [サービス] タブに移動して、StiSvc を見つけます。
    <div align="left">
-   <img src="https://jpwdkblog.github.io/images/win11-usbscan-issue/taskman2.png">
+   <img src="./images/win11-usbscan-issue/taskman2.png">
    </div>
 
 (4) StiSvc を右クリックして [再起動] を選び、サービスの再起動を行い、問題を解消します。
    <div align="left">
-   <img src="https://jpwdkblog.github.io/images/win11-usbscan-issue/taskman3.png">
+   <img src="./images/win11-usbscan-issue/taskman3.png">
    </div>
 
 <br>
