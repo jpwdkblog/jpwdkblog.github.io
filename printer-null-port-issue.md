@@ -45,6 +45,7 @@ PS> Set-Printer -Name <"プリンター名"> -PortName <"Add-PrinterPort で追�
    <img src="https://jpwdkblog.github.io/images/printer-null-port-issue/powershell.png">
    </div>
   
+  
 (4) プリンターのプロパティを確認して、以下のように変更が適用されていれば完了です
    <div align="left">
    <img src="https://jpwdkblog.github.io/images/printer-null-port-issue/printerprops-fix.png">
