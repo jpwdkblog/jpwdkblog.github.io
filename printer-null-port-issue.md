@@ -1,6 +1,6 @@
 ---
 title: UWP アプリから nul ポートが指定されているプリンターに印刷できない
-date: 2022-01-10 17:30:00
+date: 2022-03-10 17:30:00
 categories:
 - printscan
 tags:
