@@ -17,15 +17,12 @@ tags:
 現象
 次のような条件で問題が発生します。
 - プリンターのプロパティにて、プリンター ポートとして次のように `nul:` が指定されています。
-   <div align="left">
-   <img src="https://jpwdkblog.github.io/images/printer-null-port-issue/printerprops.png">
-   </div>
-- [フォト] などの UWP ベースのアプリから印刷します。  
+   <img src="https://jpwdkblog.github.io/images/printer-null-port-issue/printerprops.png" align="left" border="1"><br clear="left">
 
-その結果、次のようなエラーが発生します。
-   <div align="left">
-   <img src="https://jpwdkblog.github.io/images/printer-null-port-issue/print-error.png">
-   </div>
+
+- [フォト] などの UWP ベースのアプリから印刷します。  
+   その結果、次のようなエラーが発生します。
+   <img src="https://jpwdkblog.github.io/images/printer-null-port-issue/print-error.png" align="left" border="1"><br clear="left">
 
 <br>
 
