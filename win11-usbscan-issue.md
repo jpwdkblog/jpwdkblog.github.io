@@ -27,33 +27,14 @@ tags:
 
 <br>
 
-***
-### 回避方法
-お手数おかけいたしますが、この問題に遭遇した場合、次の手順に沿って Windows Imaging Acquisition (WIA) サービスを再起動して、問題を解消してください。
-
-(1) Ctrl + Shift + Esc キーを押下して、タスク マネージャーを起動します。
-
-(2) ウィンドウ下部にある [詳細] をクリックして、詳細表示に切り替えます。
-   <div align="left">
-   <img src="https://jpwdkblog.github.io/images/win11-usbscan-issue/taskman1.png">
-   </div>
-
-(3) [サービス] タブに移動して、StiSvc を見つけます。
-   <div align="left">
-   <img src="https://jpwdkblog.github.io/images/win11-usbscan-issue/taskman2.png">
-   </div>
-
-(4) StiSvc を右クリックして [再起動] を選び、サービスの再起動を行い、問題を解消します。
-   <div align="left">
-   <img src="https://jpwdkblog.github.io/images/win11-usbscan-issue/taskman3.png">
-   </div>
-
-<br>
 
 ***
 ### 状況
 
-この現象については、Windows 11 の不具合であると認識しており、現在調査中となります。
+この現象については Windows 11 の不具合であり 2022/9/20 に公開された更新プログラム KB5017383 (OS Build 22000.1042) 以降で修正されました。  
+  
+September 20, 2022—KB5017383 (OS Build 22000.1042) Preview  
+https://support.microsoft.com/en-us/topic/september-20-2022-kb5017383-os-build-22000-1042-preview-62753265-68e9-45d2-adcb-f996bf3ad393
 
 <br>
 
@@ -73,7 +54,8 @@ WIA: xxxx.yyy zzz 0 0 [wiaservc.dll] ERROR: DeviceListManager::ProcessDeviceArri
 
 ***
 `変更履歴`  
-`2021/12/31 created by riwaida`
+`2021/12/31 created by riwaida`  
+`2022/10/20 modified by riwaida : 更新プログラムの情報追加`  
 
 ※ 本記事は 「[jpwdkblog について](https://jpwdkblog.github.io/blog/2020/01/01/aobut-jpwdkblog/)」 の留意事項に準じます。  
 ※ 併せて 「[ホームページ](https://jpwdkblog.github.io/blog/)」 および 「[記事一覧](https://jpwdkblog.github.io/blog/archives/)」 もご参照いただければ幸いです。  
