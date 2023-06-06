@@ -12,13 +12,13 @@ tags:
 
 ***
 ### 現象
-MFC の CPringDialog クラスを利用して [印刷] ダイアログから印刷を行った場合、正常に印刷が行われない場合があります。この現象は CPrintDialog::CPrintDialog() の第二引数 dwFlags に PD_USEDEVMODECOPIES を指定している、または何も設定していない場合に発生します。(第二引数 dwFlags に何も設定しない場合は、既定で PD_USEDEVMODECOPIES が設定されます。) 
+MFC の CPringDialog クラスを利用して [印刷] ダイアログから印刷を行った場合、正常に印刷が行われない場合があります。この現象は CPrintDialog::CPrintDialog() の第一引数 bPrintSetupOnly に TRUE、第二引数 dwFlags に PD_USEDEVMODECOPIES を指定している、または第二引数に何も設定していない場合に発生します。(第二引数 dwFlags に何も設定しない場合は、既定で PD_USEDEVMODECOPIES が設定されます。) 
 
 なお、この現象が発生するとき、プリンター ドライバー側の視点では DrvStartDoc 関数が呼ばれません。
 
 ***
 ### 原因
-CPrintDialog::CPrintDialog() の第二引数 dwFlags に PD_USEDEVMODECOPIES が指定された状況では、PrintDialog::m_pd構造体の nCopies メンバーが既定で 0 となります。この値は、印刷する部数を示しており、最終的に DEVMODE 構造体の dmCopies メンバーに設定されて GDI およびプリンタードライバーで利用されます。GDI は DEVMODE.dmCopies が 0 の場合、印刷する部数は無いものと判断して印刷を行いません。その際、GDI はプリンター ドライバーの DrvStartDoc 関数を呼び出しません。
+CPrintDialog::CPrintDialog() の第一引数 bPrintSetupOnly に TRUE、第二引数 dwFlags に PD_USEDEVMODECOPIES が指定された状況では、PrintDialog::m_pd構造体の nCopies メンバーが既定で 0 となります。この値は、印刷する部数を示しており、最終的に DEVMODE 構造体の dmCopies メンバーに設定されて GDI およびプリンタードライバーで利用されます。GDI は DEVMODE.dmCopies が 0 の場合、印刷する部数は無いものと判断して印刷を行いません。その際、GDI はプリンター ドライバーの DrvStartDoc 関数を呼び出しません。
 
 ***
 ### 回避方法
