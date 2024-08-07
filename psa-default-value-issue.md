@@ -30,6 +30,8 @@ PSA の `PrintSupportExtensionSession.PrintDeviceCapabilitiesChanged` イベン�
 
 しかし、実際には別のオプションが既定の PrintTicket として構成される現象が発生します。本現象は PSA の印刷設定画面の最初の表示時に発生し、一度、設定が保存されると問題は発生いたしません。
 
+<img src="https://jpwdkblog.github.io/images/psa-default-value/print-pref.png" align="left" border="1"><br clear="left">
+
 ***
 ### 状況
 
