@@ -32,6 +32,8 @@ PSA の `PrintSupportExtensionSession.PrintDeviceCapabilitiesChanged` イベン�
 
 <img src="https://jpwdkblog.github.io/images/psa-default-value/print-pref.png" width=600px align="left" border="1"><br clear="left">
 
+<img src="https://jpwdkblog.github.io/images/print-pref.png" width=600px align="left" border="1"><br clear="left">
+
 ***
 ### 状況
 
