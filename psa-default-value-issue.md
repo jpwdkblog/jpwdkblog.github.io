@@ -36,7 +36,7 @@ PSA の `PrintSupportExtensionSession.PrintDeviceCapabilitiesChanged` イベン�
 
 <img src="https://jpwdkblog.github.io/images/psa-default-value/print-pref2.png" width=600px align="left" border="1"><br clear="left">
 
-<img src="https://jpwdkblog.github.io/images/win11-usbscan-issue/print-pref2.png" width=600px align="left" border="1"><br clear="left">
+<img src="https://jpwdkblog.github.io/images/win11-usbscan-issue/taskman1.png" width=600px align="left" border="1"><br clear="left">
 
 
 ***
