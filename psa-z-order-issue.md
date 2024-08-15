@@ -14,7 +14,7 @@ tags:
 ### 概要
 Print Support App (PSA) がインストールされた直後などにおいて、[設定] から起動時ウィンドウが設定画面の背後に隠れてしまう事象が発生します。
 PSA が起動する際、つぎのダイアログが表示されるケースで事象が発生します。  
-<img src=".\images\psa-z-order\wait-for-printer-connection.png" align="left" border="1"><br clear="left">
+<img src="https://jpwdkblog.github.io/images/psa-z-order/wait-for-printer-connection.png" align="left" border="1"><br clear="left">
 <br>
 <br>
 
@@ -25,9 +25,9 @@ PSA が起動する際、つぎのダイアログが表示されるケースで�
 2. [Bluetooth とデバイス] - [プリンターとスキャナー] の順にクリックします。
 3. 表示されたプリンターの一覧から PSA を起動するプリンターをクリックします。
 4. [印刷設定] をクリックします。  
-<img src=".\images\psa-z-order\open-print-pref.png" align="left" border="1"><br clear="left">
+<img src="https://jpwdkblog.github.io/images/psa-z-order/open-print-pref.png" align="left" border="1"><br clear="left">
 5. 次の青く囲った部分のように、PSA のウィンドウが設定画面の背後に隠れてしまうことがあります。  
-<img src=".\images\psa-z-order\psa-window-back.png" align="left" border="1" width="50%" height="50%"><br clear="left">
+<img src="https://jpwdkblog.github.io/images/psa-z-order/psa-window-back.png" align="left" border="1" width="50%" height="50%"><br clear="left">
 <br>
 <br>
 
