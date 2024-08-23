@@ -31,13 +31,142 @@ PSA の `PrintSupportExtensionSession.PrintDeviceCapabilitiesChanged` イベン�
 しかし、実際には別のオプションが既定の PrintTicket として構成される現象が発生します。本現象は PSA の印刷設定画面の最初の表示時に発生し、一度、設定が保存されると問題は発生いたしません。
 
 ***
-### 状況
+### 回避方法
 
-この現象については現在調査中であり、アップデートがあり次第、更新いたします。
+本現象を回避するためには、PSA の `PrintSupportExtensionSession.PrintDeviceCapabilitiesChanged` イベント ハンドラーにて、既定のオプションとなるオプションを PSA 自身で保存し、ユーザー既定の PrintTicket を印刷設定ダイアログを表示するタイミングで、保存した値をリストアすることで回避可能出来ます。
+
+１．まず、PSA の BackgroundTask の `LocalStorageUtil` クラスに次のようなコードを追加します。
+```C#
+    // 既に既定のオプションを PrintTicket へ設定したかどうかを確認するためのメソッド
+    public static bool IsAlreadyLoadedDefaultValue()
+    {
+        try
+        {
+            return (bool)ApplicationData.Current.LocalSettings.Values["IsLoadedDefaultValue"];
+        }
+        catch (NullReferenceException e)
+        {
+            return false;
+        }
+    }
+
+    // 既定のオプションを PrintTicket へ適用したことを示すためのメソッド
+    public static void LoadedDefaultValue(bool _bLoaded)
+    {
+        ApplicationData.Current.LocalSettings.Values["IsLoadedDefaultValue"] = _bLoaded;
+    }
+
+    // 指定 Feature のデフォルト オプションの値を保存します
+    public static void SetPdcDefaultValue(string _Feature, string _DefaultValue)
+    {
+        System.Diagnostics.Debug.WriteLine("SetPdcDefaultValue: Feature=" + _Feature + ", Default=" + _DefaultValue);
+        ApplicationData.Current.LocalSettings.Values[_Feature] = _DefaultValue;
+    }
+
+    // 指定 Feature のデフォルト オプションの値を返します
+    public static string GetPdcDefaultValue(string _Feature)
+    {
+        try
+        {
+            return (string)ApplicationData.Current.LocalSettings.Values[_Feature];
+        }
+        catch (NullReferenceException e)
+        {
+            System.Diagnostics.Debug.WriteLine(e.Message);
+            return null;
+        }
+    }
+```  
   
+    
+２．`PrintSupportExtensionSession.PrintDeviceCapabilitiesChanged` イベント ハンドラーに、手順１で追加した `SaveDefaultValues()` を呼び出して、Print Device Capabilities に設定されている既定値を保存します。
+```C#
+    private void OnSessionPrintDeviceCapabilitiesChanged(PrintSupportExtensionSession sender, PrintSupportPrintDeviceCapabilitiesChangedEventArgs args)
+    {
+        var pdc = args.GetCurrentPrintDeviceCapabilities();
+
+        // Add the custom namesapce uri to the XML document.
+        pdc.DocumentElement.SetAttribute("xmlns:contoso", "http://schemas.contoso.com/keywords");
+        // Add the custom media type.
+        AddCustomMediaType(ref pdc, "http://schemas.contoso.com/keywords", "contoso:ContosoMediaType");
+
+        // PDC のデフォルト値を保存するメソッドを呼び出します
+        SaveDefaultValues(ref pdc);
+
+        args.UpdatePrintDeviceCapabilities(pdc);
+        args.SetPrintDeviceCapabilitiesUpdatePolicy(
+            PrintSupportPrintDeviceCapabilitiesUpdatePolicy.CreatePeriodicRefresh(System.TimeSpan.FromMinutes(1)));
+        args.GetDeferral().Complete();
+    }
+```
 
 
-<br>
+３．手順１と２で `LocalStorageUtil` に保存したオプションの既定値をコンボボックスの初期化処理などで利用し、コンボボックス アイテムの初期に設定します。
+```C#
+    private ComboBox CreatePrintTicketFeatureComboBox(PrintTicketFeature feature, bool useDefaultEventHandler = true)
+    {
+        if (feature == null)
+        {
+            return null;
+        }
+
+        var comboBox = new ComboBox
+        {
+            // Header is displayed in the UI, ontop of the ComboBox.
+            Header = feature.DisplayName
+        };
+        // Construct a new List since IReadOnlyList does not support the 'IndexOf' method.
+        var options = new ObservableCollection<PrintTicketOption>(feature.Options);
+        // Provide the combo box with a list of options to select from.
+        comboBox.ItemsSource = options;
+        // Set the selected option to the option set in the print ticket.
+        PrintTicketOption selectedOption;
+
+
+        // PDC の既定値を LocalStorageUtil から1回だけ読み込む
+        string defaultOption = LocalStorageUtil.GetPdcDefaultValue(feature.Name);
+        if (!LocalStorageUtil.IsAlreadyLoadedDefaultValue() &&
+            defaultOption != null)
+        {
+            selectedOption = options[0];
+            foreach (var option in options)
+            {
+                if (option.Name == defaultOption)
+                {
+                    // デフォルト値
+                    selectedOption = option;
+                    break;
+                }
+            }
+        }
+        else
+        {
+            var featureOption = feature.GetSelectedOption();
+            try
+            {
+                selectedOption = options.Single((option) => (
+                    option.Name == featureOption.Name && option.XmlNamespace == featureOption.XmlNamespace));
+            }
+            // Catch exceptions, because there can be multiple features with the "None" feature name.
+            // We need to handle those features seperately.
+            catch (System.SystemException exception)
+            {
+                var nameAttribute = featureOption.XmlNode.Attributes.GetNamedItem("name");
+                var attribute = featureOption.XmlNode.OwnerDocument.CreateAttribute("name");
+
+                selectedOption = options.Single((option) => (
+                    option.DisplayName == featureOption.DisplayName && option.Name == featureOption.Name && option.XmlNamespace == featureOption.XmlNamespace));
+
+            }
+        }
+
+        comboBox.SelectedIndex = options.IndexOf(selectedOption);
+
+        // LocalStorageUtil からの読み込みが完了したことをセットします
+        LocalStorageUtil.LoadedDefaultValue(true);
+```
+
+
 
 ***
 ### 関連ドキュメント
