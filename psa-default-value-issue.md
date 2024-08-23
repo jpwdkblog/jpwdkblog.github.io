@@ -1,6 +1,6 @@
 ---
 title: Print Support App (PSA) にて用紙の設定が既定の値にならない
-date: 2024-08-07 00:00:00
+date: 2024-08-23 00:00:00
 categories:
 - printscan
 tags:
