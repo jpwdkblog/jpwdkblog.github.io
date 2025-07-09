@@ -14,9 +14,9 @@ tags:
 
 ***
 ### 概要
-Windows Version 24H2 (OS Build 26100.xxxx) において、v3 プリンター ドライバーを使ってドキュメントを印刷すると、スプーラー サービス (spoolsv.exe) でメモリリークが発生することを確認しております。　　
+Windows Version 24H2 (OS Build 26100) において、v3 プリンター ドライバーを使ってドキュメントを印刷すると、スプーラー サービス (spoolsv.exe) でメモリリークが発生することを確認しております。　　
 
-この現象は、v3 プリンター ドライバーの DrvEnableSurface コールバック関数以外のコールバック関数でEngCreateBitmap 関数を呼び出している場合に発生します。例えば、DrvBitBlt や DrvStretchBlt などのようなビット ブロック転送機能を実装するドライバーのコールバック関数で EngCreateBitmap / EngDeleteSurface の呼び出しで発生します。  
+この現象は、v3 プリンター ドライバーの DrvEnableSurface コールバック関数以外のコールバック関数で EngCreateBitmap 関数を呼び出している場合に発生します。例えば、DrvBitBlt や DrvStretchBlt などのようなビット ブロック転送機能を実装するドライバーのコールバック関数で EngCreateBitmap / EngDeleteSurface の呼び出しで発生します。  
 <br>  
 
   
