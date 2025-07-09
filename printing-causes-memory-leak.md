@@ -20,6 +20,7 @@ Windows Version 24H2 (OS Build 26100) において、v3 プリンター ドラ�
 <br>  
 
   
+***  
 ### 現象
 印刷を繰り返すと、spoolsv.exe のメモリ使用量 (タスク マネージャーのワーキング セットやコミット サイズ) の値が徐々に増加します。
    <img src="https://jpwdkblog.github.io/images/print-memleak-issue/taskmgr.png" align="left" border="1"><br clear="left">
