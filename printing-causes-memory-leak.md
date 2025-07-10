@@ -8,15 +8,14 @@ tags:
 - Windows 11 24H2
 - Windows Server 2025
 ---
-この記事では、Windows 11 24H2 および Windows Server 2025 における印刷におけるメモリリークについて説明します。
-<!-- more -->
+この記事では、Windows 11 24H2 および Windows Server 2025 上での印刷処理において発生するメモリリークについて説明します。
 <br>
 
 ***
 ### 概要
 Windows Version 24H2 (OS Build 26100) において、v3 プリンター ドライバーを使ってドキュメントを印刷すると、スプーラー サービス (spoolsv.exe) でメモリリークが発生することを確認しております。　　
 
-この現象は、v3 プリンター ドライバーの DrvEnableSurface コールバック関数以外のコールバック関数で EngCreateBitmap 関数を呼び出している場合に発生します。例えば、DrvBitBlt や DrvStretchBlt などのようなビット ブロック転送機能を実装するドライバーのコールバック関数で EngCreateBitmap / EngDeleteSurface の呼び出しで発生します。  
+この現象は、v3 プリンター ドライバーの DrvEnableSurface コールバック関数以外のコールバック関数で [EngCreateBitmap 関数](https://learn.microsoft.com/ja-jp/windows/win32/api/winddi/nf-winddi-engcreatebitmap) を呼び出している場合に発生します。例えば、DrvBitBlt や DrvStretchBlt などのようなビット ブロック転送機能を実装するドライバーのコールバック関数で EngCreateBitmap / [EngDeleteSurface 関数](https://learn.microsoft.com/ja-jp/windows/win32/api/winddi/nf-winddi-engdeletesurface) の呼び出しで発生します。  
 印刷するドキュメントの内容によって、ドライバーで実行されるコードパスが変わるため、事象の発生は 100 %ではありません。
 <br>  
 
@@ -27,10 +26,14 @@ Windows Version 24H2 (OS Build 26100) において、v3 プリンター ドラ�
    <img src="https://jpwdkblog.github.io/images/print-memleak-issue/taskmgr.png" align="left" border="1"><br clear="left">
 <br>
 
- 
-***
+  
+また、実際にメモリの解放が失敗した時には、EngDeleteSurface 関数の呼び出しが失敗 (FALSE を返す) ことが確認されています。ドライバー側の処理で、EngDeleteSurface 関数の戻り値を確認していただくことでも、事象の発生有無を確認することができます。
+<br>  
+
+
+***  
 ### 回避方法
-現状、この問題を確実に回避する方法はありませんが、プリンタードライバーの分離機能を有効化することで、常時実行されているスプーラー サービスで発生するメモリリークの問題を別のプロセス (PrintIsolationHost.exe) に分離することができます。この PrintIsolationHost.exe は常時起動し実行されるのではなく、使用されなくなるとプログラムが終了します。確保されていたメモリはプログラム (.exe) が終了すると、強制的に解放されるため、結果的にメモリリークしていたメモリも解放さることになります。  
+現状、この問題を確実に回避する方法はありませんが、プリンタードライバーの分離機能を有効化することで、常時実行されているスプーラー サービスで発生するメモリリークの問題を別のプロセス (PrintIsolationHost.exe) に分離することができます。この PrintIsolationHost.exe は常駐で実行されるものではなく、一定時間使用されなくなるとプログラムが自動で終了します。確保されていたメモリはプログラム (.exe) が終了すると、強制的に解放されるため、結果的にメモリリークしていたメモリも解放さることになります。  
 プリンタードライバーの分離機能を有効化するためには、次の手順を実行します。
 
 1. [印刷の管理] を起動します。  
@@ -46,6 +49,8 @@ Windows Version 24H2 (OS Build 26100) において、v3 プリンター ドラ�
 本問題は、Windows における GDI の問題であると認識しており、現在修正作業行っております。  
 現時点で、Windows 11 24H2 に対する修正は 2025 年 9 月の提供を目標に作業中です。Windows Server OS については、クライアント OS の提供後、約 4 カ月後となるため 2026 年 1 月あるいは 2 月に提供となる見込みです。なお、修正プログラムの提供は、他の修正プログラムの影響なども受けるため、状況によって予定は変更となる場合がございます。今後の状況については、アップデートがあり次第こちらで更新します。
 
+<!--Original 57827011-->
+<!--Parent 55401107/2025.08D-->
 
 <br>
 
