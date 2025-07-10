@@ -172,3 +172,10 @@ PSA の `PrintSupportExtensionSession.PrintDeviceCapabilitiesChanged` イベン�
 ### 関連ドキュメント
 
 [PrintSupportExtensionSession.PrintDeviceCapabilitiesChanged イベント](https://learn.microsoft.com/ja-jp/uwp/api/windows.graphics.printing.printsupport.printsupportextensionsession.printdevicecapabilitieschanged?view=winrt-26100)
+
+
+  
+`変更履歴`  
+`2024/08/07 created by riwaida`  
+`2024/08/24 modified by riwaida : 回避方法の追加`  
+`2025/07/10 modified by riwaida : 変更履歴の記載`  
