@@ -17,6 +17,7 @@ tags:
 Windows Version 24H2 (OS Build 26100) において、v3 プリンター ドライバーを使ってドキュメントを印刷すると、スプーラー サービス (spoolsv.exe) でメモリリークが発生することを確認しております。　　
 
 この現象は、v3 プリンター ドライバーの DrvEnableSurface コールバック関数以外のコールバック関数で EngCreateBitmap 関数を呼び出している場合に発生します。例えば、DrvBitBlt や DrvStretchBlt などのようなビット ブロック転送機能を実装するドライバーのコールバック関数で EngCreateBitmap / EngDeleteSurface の呼び出しで発生します。  
+印刷するドキュメントの内容によって、ドライバーで実行されるコードパスが変わるため、事象の発生は 100 %ではありません。
 <br>  
 
   
@@ -26,11 +27,24 @@ Windows Version 24H2 (OS Build 26100) において、v3 プリンター ドラ�
    <img src="https://jpwdkblog.github.io/images/print-memleak-issue/taskmgr.png" align="left" border="1"><br clear="left">
 <br>
 
+ 
+***
+### 回避方法
+現状、この問題を確実に回避する方法はありませんが、プリンタードライバーの分離機能を有効化することで、常時実行されているスプーラー サービスで発生するメモリリークの問題を別のプロセス (PrintIsolationHost.exe) に分離することができます。この PrintIsolationHost.exe は常時起動し実行されるのではなく、使用されなくなるとプログラムが終了します。確保されていたメモリはプログラム (.exe) が終了すると、強制的に解放されるため、結果的にメモリリークしていたメモリも解放さることになります。  
+プリンタードライバーの分離機能を有効化するためには、次の手順を実行します。
+
+1. [印刷の管理] を起動します。  
+<img src="https://jpwdkblog.github.io/images/print-memleak-issue/printmgmt.png" align="left" border="1"><br clear="left">  
+
+2. 左側のペインで [プリント サーバー] - [<PC 名> (ローカル)] - [ドライバー] の順に展開します。対象のプリンタードライバーを右クリックして [ドライバーの分離の設定] - [分離] の順にクリックして機能を有効化します。
+<img src="https://jpwdkblog.github.io/images/print-memleak-issue/isolation.png" align="left" border="1"><br clear="left">    
+<br>
+
 
 ***
 ### 状況
-本問題は、Windows における GDI の問題であると認識しており、現在修正に向けて作業中です。  
-Windows 11 24H2 については 2025 年中の修正を予定しております。今後アップデートがあり次第、更新いたします。
+本問題は、Windows における GDI の問題であると認識しており、現在修正作業行っております。  
+現時点で、Windows 11 24H2 に対する修正は 2025 年 8月の提供を目標に作業中です。Windows Server 2025 については、クライアント OS の提供後、約 4 カ月後となるため 2026 年 1 月に提供となり見込みです。なお、修正プログラムの提供は、他の修正プログラムの影響なども受けるため、状況によって予定は変更となる場合がございます。今後の状況については、アップデートがあり次第こちらで更新します。
 
 
 <br>
