@@ -50,6 +50,9 @@ Windows Version 24H2 (OS Build 26100) において、v3 プリンター ドラ�
 本問題は、Windows における GDI の問題であると認識しており、現在修正作業行っております。  
 現時点で、Windows 11 24H2 に対する修正は 2025 年 9 月の提供を目標に作業中です。Windows Server OS については、クライアント OS の提供後、約 4 カ月後となるため 2026 年 1 月あるいは 2 月に提供となる見込みです。なお、修正プログラムの提供は、他の修正プログラムの影響なども受けるため、状況によって予定は変更となる場合がございます。今後の状況については、アップデートがあり次第こちらで更新します。
 
+2025 年 7 月 28 日更新
+本問題の修正が含まれる累積更新プログラム全体のテスト パスが開始中しています。現段階では作業に遅延は確認されていません。
+
 <!--Original 57827011-->
 <!--Parent 55401107/2025.08D-->
 
@@ -60,6 +63,7 @@ Windows Version 24H2 (OS Build 26100) において、v3 プリンター ドラ�
 ***
 `変更履歴`  
 `2025/07/10 created by riwaida`  
+`2025/07/28 updated by riwaida`  
 
 ※ 本記事は 「[jpwdkblog について](https://jpwdkblog.github.io/blog/2020/01/01/aobut-jpwdkblog/)」 の留意事項に準じます。  
 ※ 併せて 「[ホームページ](https://jpwdkblog.github.io/blog/)」 および 「[記事一覧](https://jpwdkblog.github.io/blog/archives/)」 もご参照いただければ幸いです。  
