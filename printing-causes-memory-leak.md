@@ -57,8 +57,13 @@ Windows Version 24H2 (OS Build 26100) において、v3 プリンター ドラ�
 予定通りテストは大きな問題もなく完了しました。現段階では作業に遅延は確認されていません。次回は 8 月 25 日の週に更新を予定しています。
 
 2025 年 8 月 29 日更新  
-この問題の修正コードが含まれる 8 月の オプションのセキュリティ以外のプレビュー リリースのサインオフの作業に若干の遅れが生じていましたが、近日中にリリース予定です。次回は前述のプレビュー リリースが公開になりましたら更新いたします。  
-関連情報：[更新プログラムのリリース サイクル](https://learn.microsoft.com/ja-jp/windows/deployment/update/release-cycle)
+8 月の オプションのセキュリティ以外のプレビュー リリースのサインオフの作業に若干の遅れが生じていましたが、近日中にリリース予定です。次回は前述のプレビュー リリースが公開になりましたら更新いたします。  
+関連情報：[更新プログラムのリリース サイクル](https://learn.microsoft.com/ja-jp/windows/deployment/update/release-cycle)  
+
+2025 年 9 月 02 日更新  
+8 月の オプションのセキュリティ以外のプレビュー リリースが以下にて公開されました。本問題の修正コードが有効化される次回オプションのセキュリティ以外のプレビュー リリースは、9 月の第 4 週の提供予定となっております。現時点では 9 月 24 日にスケジュールされていますが状況によって変わる場合がございます。9 月の第 3 週に改めて更新いたします。  
+関連情報：[2025 年 8 月 29 日 — KB5064081 (OS ビルド 26100.5074) プレビュー](https://support.microsoft.com/ja-jp/help/5064081)
+
 
 <!--Original 57827011-->
 <!--Parent 55401107/2025.08D-->
@@ -73,8 +78,10 @@ Windows Version 24H2 (OS Build 26100) において、v3 プリンター ドラ�
 `2025/07/28 updated by riwaida`  
 `2025/08/12 updated by riwaida`  
 `2025/08/29 updated by riwaida`  
+`2025/09/02 updated by riwaida`  
 
 ※ 本記事は 「[jpwdkblog について](https://jpwdkblog.github.io/blog/2020/01/01/aobut-jpwdkblog/)」 の留意事項に準じます。  
 ※ 併せて 「[ホームページ](https://jpwdkblog.github.io/blog/)」 および 「[記事一覧](https://jpwdkblog.github.io/blog/archives/)」 もご参照いただければ幸いです。  
+
 
 
