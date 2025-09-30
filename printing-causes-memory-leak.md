@@ -64,6 +64,10 @@ Windows Version 24H2 (OS Build 26100) において、v3 プリンター ドラ�
 8 月の オプションのセキュリティ以外のプレビュー リリースが以下にて公開されました。本問題の修正コードが有効化される次回オプションのセキュリティ以外のプレビュー リリースは、9 月の第 4 週の提供予定となっております。現時点では 9 月 24 日にスケジュールされていますが状況によって変わる場合がございます。9 月の第 3 週に改めて更新いたします。  
 関連情報：[2025 年 8 月 29 日 — KB5064081 (OS ビルド 26100.5074) プレビュー](https://support.microsoft.com/ja-jp/help/5064081)
 
+2025 年 9 月 30 日更新  
+9 月の オプションのセキュリティ以外のプレビュー リリースが以下にて公開されました。KB5065789 をインストールすることで、本メモリリークの問題に対する修正プログラムが適用されます。   
+関連情報：[2025 年 9 月 29 日 — KB5065789 (OS ビルド 26100.6725) プレビュー](https://support.microsoft.com/ja-jp/help/5065789)  
+関連情報：[Microsoft Update Catalog](https://www.catalog.update.microsoft.com/Search.aspx?q=KB5065789)  
 
 <!--Original 57827011-->
 <!--Parent 55401107/2025.08D-->
@@ -79,9 +83,11 @@ Windows Version 24H2 (OS Build 26100) において、v3 プリンター ドラ�
 `2025/08/12 updated by riwaida`  
 `2025/08/29 updated by riwaida`  
 `2025/09/02 updated by riwaida`  
+`2025/09/30 updated by riwaida`  
 
 ※ 本記事は 「[jpwdkblog について](https://jpwdkblog.github.io/blog/2020/01/01/aobut-jpwdkblog/)」 の留意事項に準じます。  
 ※ 併せて 「[ホームページ](https://jpwdkblog.github.io/blog/)」 および 「[記事一覧](https://jpwdkblog.github.io/blog/archives/)」 もご参照いただければ幸いです。  
+
 
 
 
