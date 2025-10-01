@@ -42,11 +42,11 @@ tags:
 この記事では Generic なサンプルとして提供されている Toaster サンプルを使用します。Toaster サンプルは KMDF 版と UMDF 版の2種類がありますが UMDF 版は [Windows-driver-samples/general/toaster/umdf2](https://github.com/microsoft/Windows-driver-samples/tree/main/general/toaster/umdf2) にあります。
 
 1. 開発環境 PC の Visual Studio で Windows-driver-samples\general\toaster\umdf2\umdf2toaster.sln を開きます
-2. Soltion Explorer を見ると、そのソリューション内には Exe, Filter, Func, Package というプロジェクトがありますが、ひとまず Solution 部分をクリックします。  
+2. **[Solution Explorer]** を見ると、そのソリューション内には Exe, Filter, Func, Package というプロジェクトがありますが、ひとまず Solution 部分をクリックします。  
    <img src="https://jpwdkblog.github.io/images/umdfremodedbg/solutionexplr.png" align="left" border="1"><br clear="left">
 3. 続いて、ビルド対象を選びます。  
    <img src="https://jpwdkblog.github.io/images/umdfremodedbg/targetplat.png" align="left" border="1"><br clear="left">
-4. **Build** メニューから **Rebuild Solution** を選びビルドします。
+4. **[ビルド]** メニューから **[ソリューションのリビルド]** を選びビルドします。
 5. ビルドが正常に終わると、その結果として x64 Debug の場合、次のような出力ファイルが得られます。
    ```cmd
    umdf2
@@ -64,7 +64,7 @@ tags:
 ### ドライバーのインストール
 ドライバーのインストールにはいくつか方法がありますが、今回はドライバー パッケージを手動でターゲット PC にコピーして、デバイス マネージャーを使ってインストールします。  
 1. 前の手順の 5 の `Debug` フォルダーをターゲット PC の任意のフォルダーにコピーします。  
-2. ターゲット PC 上でコピー先フォルダー内にある `package.cer` を右クリックして **証明書のインストール** をクリックします。  
+2. ターゲット PC 上でコピー先フォルダー内にある `package.cer` を右クリックして **[証明書のインストール]** をクリックします。  
    <img src="https://jpwdkblog.github.io/images/umdfremodedbg/installcert.png" align="left" border="1"><br clear="left">
 3. 証明書のインポート ウィザードで次の設定で選び、**完了** をクリックして証明書をインポートします。  
 
@@ -75,12 +75,12 @@ tags:
     | 証明書ストア | 信頼されたルート証明機関 |
     | 物理ストアを表示する | チェックしない |
 4. スタート メニューを右クリックしてデバイス マネージャーを起動します。
-5. **操作** メニューをクリックして、**レガシ ハードウェアの追加** をクリックします。
-6. **ハードウェアの追加** ウィザードで、次の設定を行い、ドライバーとデバイスのインストールを行います。  
-   6-1. インストール方法の選択で **一覧から選択したハードウェアをインストールする (詳細)** を選び次へ。  
-   6-2. **共通ハードウェアの種類** で **すべてのデバイスを表示** を選び次へ。  
-   6-3. **ディスクを使用** をクリックして、ドライバー パッケージをコピーしたフォルダーに移動して `wdfsimpleum.inf` を選び **開く** をクリックします。  
-   6-4. `Sample UMDF Toaster Driver - simple` を選び **次へ** をクリックし、残りのウィザードを進め完了します。  
+5. **[操作]** メニューをクリックして、**[レガシ ハードウェアの追加]** をクリックします。
+6. **[ハードウェアの追加]** ウィザードで、次の設定を行い、ドライバーとデバイスのインストールを行います。  
+   6-1. インストール方法の選択で **[一覧から選択したハードウェアをインストールする (詳細)]** を選び次へ。  
+   6-2. **[共通ハードウェアの種類]** で **[すべてのデバイスを表示]** を選び次へ。  
+   6-3. **[ディスクを使用]** をクリックして、ドライバー パッケージをコピーしたフォルダーに移動して `wdfsimpleum.inf` を選び **[開く]** をクリックします。  
+   6-4. `Sample UMDF Toaster Driver - simple` を選び **[次へ]** をクリックし、残りのウィザードを進め完了します。  
       <img src="https://jpwdkblog.github.io/images/umdfremodedbg/installcomp.png" align="left" border="1"><br clear="left">
 7. デバイス マネージャーに次のように表示されインストールが完了していることが分かります。  
       <img src="https://jpwdkblog.github.io/images/umdfremodedbg/devmgr.png" align="left" border="1"><br clear="left">  
@@ -143,4 +143,5 @@ tags:
 `2025/09/30 created by riwaida`
 
 ※ 本記事は 「[jpwdkblog について](https://jpwdkblog.github.io/blog/2020/01/01/aobut-jpwdkblog/)」 の留意事項に準じます。  
+
 ※ 併せて 「[ホームページ](https://jpwdkblog.github.io/blog/)」 および 「[記事一覧](https://jpwdkblog.github.io/blog/archives/)」 もご参照いただければ幸いです。  
