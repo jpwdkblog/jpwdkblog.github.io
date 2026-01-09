@@ -1,5 +1,5 @@
 ---
-title: Print Support App (PSA) 仮想プリンターで、JoB UI ウィンドウが印刷を行ったアプリの背面に表示されてしまう
+title: Print Support App (PSA) 仮想プリンターで、Job UI ウィンドウが印刷を行ったアプリの背面に表示されてしまう
 date: 2026-01-09 00:00:00
 categories:
 - printscan
@@ -12,15 +12,15 @@ tags:
 
 ***
 ### 概要
-アプリから Print Support App (PSA) で作成された仮想プリンターに対して印刷を行った際、仮想プリンターの [PrintWorkflowVirtualPrinterSession.VirtualPrinterDataAvailable](https://learn.microsoft.com/en-us/uwp/api/windows.graphics.printing.workflow.printworkflowvirtualprintersession.virtualprinterdataavailable?view=winrt-26100) で [LaunchAndCompleteUIAsync](https://learn.microsoft.com/en-us/uwp/api/windows.graphics.printing.workflow.printworkflowuilauncher.launchandcompleteuiasync?view=winrt-26100) を呼び出して プリント ワークフロー Job UI を表示したとき、表示された Job UI のウィンドウが印刷を行ったアプリの背後に隠れてしまう事象が発生します。  
-この現象は、印刷を行ったアプリが 32bit アプリケーションだった場合に発生します。64 bit OS 上の 64 bit アプリの場合は、発生しません。  
+アプリから Print Support App (PSA) で作成された仮想プリンターに対して印刷を行った際、仮想プリンターの [PrintWorkflowVirtualPrinterSession.VirtualPrinterDataAvailable](https://learn.microsoft.com/en-us/uwp/api/windows.graphics.printing.workflow.printworkflowvirtualprintersession.virtualprinterdataavailable?view=winrt-26100) で [LaunchAndCompleteUIAsync](https://learn.microsoft.com/en-us/uwp/api/windows.graphics.printing.workflow.printworkflowuilauncher.launchandcompleteuiasync?view=winrt-26100) を呼び出してプリント ワークフロー Job UI を表示した際に、表示された Job UI のウィンドウが、印刷を行ったアプリの背後に隠れてしまう現象が発生します。  
+この現象は、印刷を行ったアプリが 32-bit アプリケーションだった場合に発生します。64-bit OS 上の 64-bit アプリの場合は、発生しません。  
 <br>
 <br>
 
 ***
 ### 現象
-問題の事象が発生する手順は次の通りです。
-1. 32 bit アプリケーションを起動します。(例：%WINDIR%\SysWOW64\msinfo32.exe など)
+問題の現象が発生する手順は次の通りです。
+1. 32-bit アプリケーションを起動します。(例：%WINDIR%\SysWOW64\msinfo32.exe など)
 2. 仮想プリンターに対して印刷を行います。
 3. 仮想プリンターのワークフロー Job UI ウィンドウが開きます。
 4. 次の青く囲った部分のように、PSA のウィンドウが印刷を行ったアプリ ウィンドウの背後に隠れてしまうことがあります。  
@@ -31,7 +31,7 @@ tags:
 ***
 ### 原因
 フォアグラウンド ウィンドウを設定できるプロセスは、システムによって制限されています。制限を解除するためには、AllowSetForegroundWindow 関数などを用いて事前に設定が必要となります。  
-印刷を行うアプリと、ワークフロー Job UI を表示するプログラムは、別プロセスでありこれらの制限を解除する必要がありますが、現状は特定の条件でこの制限を解除できていないためこの問題が発生しています。
+印刷を行うアプリと、ワークフロー Job UI を表示するプログラムは、別プロセスでありこれらの制限を解除する必要がありますが、現状では、特定の条件下においてこの制限を正しく解除できていないため、ワークフロー Job UI が前面に表示されない問題が発生しています。
 <br>
 <br>
 
@@ -39,7 +39,7 @@ tags:
 ***
 ### 回避方法
 この問題に対して PSA 側での実装では、有効な回避方法がありません。  
-そのため、事象が発生した場合、アプリの背面に表示されたウィンドウをクリックして、前面に表示して操作を行ってください。あるいは、タスクバーでハイライトされているアイコンをクリックして、ワークフロー Job UI の操作を行ってください。  
+そのため、本現象が発生した場合は、アプリの背面に表示されたウィンドウをクリックして、前面に表示して操作を行ってください。あるいは、タスクバーでハイライトされているアイコンをクリックして、ワークフロー Job UI の操作を行ってください。  
 <img src="https://jpwdkblog.github.io/images/virtualprinter-z-order-issue/taskbar.png" align="left" border="1"><br clear="left">
 <br>
 <br>
