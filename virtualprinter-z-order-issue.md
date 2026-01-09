@@ -23,19 +23,30 @@ tags:
 1. 32 bit アプリケーションを起動します。(例：%WINDIR%\SysWOW64\msinfo32.exe など)
 2. 仮想プリンターに対して印刷を行います。
 3. 仮想プリンターのワークフロー Job UI ウィンドウが開きます。
-4. 次の青く囲った部分のように、PSA のウィンドウが設定画面の背後に隠れてしまうことがあります。  
+4. 次の青く囲った部分のように、PSA のウィンドウが印刷を行ったアプリ ウィンドウの背後に隠れてしまうことがあります。  
 <img src="https://jpwdkblog.github.io/images/virtualprinter-z-order-issue/repro.png" align="left" border="1"><br clear="left">
-
-事象が発生した場合、背面に表示されたウィンドウをクリックして、前面に表示して操作を行ってください。または、タスクバーでハイライトされているアイコンをクリックして、ワークフロー UI の操作を行ってください。  
-<img src="https://jpwdkblog.github.io/images/virtualprinter-z-order-issue/taskbar.png" align="left" border="1"><br clear="left">
-
 <br>
-<br>  
+<br>
+
+***
+### 原因
+フォアグラウンド ウィンドウを設定できるプロセスは、システムによって制限されています。制限を解除するためには、AllowSetForegroundWindow 関数などを用いて事前に設定が必要となります。  
+印刷を行うアプリと、ワークフロー Job UI を表示するプログラムは、別プロセスでありこれらの制限を解除する必要がありますが、現状は特定の条件でこの制限を解除できていないためこの問題が発生しています。
+<br>
+<br>
+
+
+***
+### 回避方法
+この問題に対して PSA 側での実装では、有効な回避方法がありません。  
+そのため、事象が発生した場合、アプリの背面に表示されたウィンドウをクリックして、前面に表示して操作を行ってください。あるいは、タスクバーでハイライトされているアイコンをクリックして、ワークフロー Job UI の操作を行ってください。  
+<img src="https://jpwdkblog.github.io/images/virtualprinter-z-order-issue/taskbar.png" align="left" border="1"><br clear="left">
+<br>
+<br>
 
 
 ***
 ### 状況
-
 この現象についてはマイクロソフトの不具合として認識しており開発部門へ報告済みとなりますが、現時点では修正の予定が決まっておりません。
 
 <!--OS Bug ID 60581804-->
